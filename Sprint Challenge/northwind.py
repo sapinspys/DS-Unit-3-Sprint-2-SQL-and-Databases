@@ -33,7 +33,9 @@ print(f"Largest category by number of unique products:\n{c.execute('SELECT COUNT
 
 # - (*Stretch*) Who's the employee with the most territories? Use `TerritoryId` (not name, region, or other fields) as the unique identifier for territories.
 
-print(c.execute('SELECT sql FROM sqlite_master WHERE name="Territory";').fetchall()) 
+# print(c.execute('SELECT sql FROM sqlite_master WHERE name="EmployeeTerritory";').fetchall())
+
+print(f"Employee with most territories:\n{c.execute('SELECT EmployeeId, TerritoryId FROM EmployeeTerritory GROUP BY TerritoryId ORDER BY COUNT(EmployeeId) DESC').fetchone()}")
 
 # conn.commit() 
 
