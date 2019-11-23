@@ -19,7 +19,7 @@ password = 'FIyqnTjfI0zSpGc0l9M0OBtXRdcH0cF8'
 pg_conn = psycopg2.connect(database=database, user=user, password=password, host=host)
 pg_cur = pg_conn.cursor()
 
-# create proper table (psycopg)
+# create proper table (psycopg) ADD IT DF.TO_SQL -> DTYPES DICTIONARY TO CREATE TABLE SQLITE ALCHEMY 
 create_shippers_table = """
     CREATE TABLE Shippers(
     ShipperID serial PRIMARY KEY,
@@ -32,4 +32,4 @@ pg_cur.execute(create_shippers_table)
 pg_conn.commit()
 
 # use pandas to_sql to pg_conn
-df.to_sql('Customers', pg_conn_2)
+df.to_sql('Customers', pg_conn)
